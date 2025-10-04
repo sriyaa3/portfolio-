@@ -3,7 +3,7 @@ services:
   - type: web
     name: portfolio-backend
     runtime: python
-    buildCommand: "./backend/build.sh"
+    buildCommand: "cd backend && pip install -r requirements_simple.txt"
     startCommand: "cd backend && uvicorn server:app --host 0.0.0.0 --port $PORT"
     plan: starter
     rootDir: .
@@ -18,14 +18,12 @@ services:
         value: "https://portfolio-frontend-xxxx.onrender.com,http://localhost:3000"
     
   # Frontend Static Site Service  
-  - type: web
+  - type: static
     name: portfolio-frontend
-    runtime: node
     buildCommand: "cd frontend && npm install --legacy-peer-deps && npm run build"
     staticPublishPath: frontend/build
     plan: starter
     rootDir: .
-    env: node
     region: oregon
     routes:
       - type: rewrite
