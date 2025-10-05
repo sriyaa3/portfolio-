@@ -53,9 +53,9 @@ This is a comprehensive portfolio website built with modern technologies to show
 
 ### Development & Deployment
 - **Version Control**: Git
-- **Deployment**: Render
-- **CI/CD**: Automated via Render
-- **Environment**: Docker-ready
+- **Deployment**: GitHub Pages
+- **CI/CD**: GitHub Actions
+- **Environment**: Production-ready
 
 ## 📂 Project Structure
 
@@ -64,8 +64,6 @@ portfolio--main/
 ├─ 📁 backend/                 # FastAPI Backend
 │   ├─ server.py              # Main server file
 │   ├─ requirements_simple.txt # Python dependencies
-│   ├─ build.sh               # Build script
-│   ├─ start.sh               # Start script
 │   └─ .env                   # Environment variables
 ├─ 📁 frontend/               # React Frontend
 │   ├─ 📁 public/             # Static assets
@@ -79,11 +77,10 @@ portfolio--main/
 │   │   ├─ 📁 data/          # Mock data
 │   │   ├─ 📁 hooks/         # Custom hooks
 │   │   └─ 📁 lib/           # Utilities
-│   ├─ package.json          # Node dependencies
-│   └─ build.sh              # Build script
-├─ render.yaml               # Render deployment config
-├─ RENDER_DEPLOYMENT.md      # Deployment guide
-├─ DEPLOY_QUICK.md          # Quick deployment reference
+│   └─ package.json          # Node dependencies
+├─ 📁 .github/workflows/     # GitHub Actions
+│   └─ deploy.yml            # Deployment workflow
+├─ GITHUB_PAGES_DEPLOYMENT.md # GitHub Pages deployment guide
 └─ README.md                # This file
 ```
 
@@ -124,29 +121,57 @@ portfolio--main/
    - Portfolio: `http://localhost:3000`
    - API Documentation: `http://localhost:8002/docs`
 
-## 🌍 Deployment
+## 🌐 Deployment
 
-### Deploy to Render (Recommended)
+### Deploy to GitHub Pages (Frontend Only)
 
-This project is configured for easy deployment on Render using the included `render.yaml` blueprint.
+Deploy the React frontend to GitHub Pages for free hosting:
 
-#### Option 1: Blueprint Deployment
 ```bash
-# 1. Push to GitHub
-git add .
-git commit -m "Deploy to Render"
+# Enable GitHub Pages in repository settings
+# Push to main branch - automatic deployment via GitHub Actions
 git push origin main
-
-# 2. Create Blueprint on Render Dashboard
-# 3. Connect GitHub repository
-# 4. Deploy automatically
 ```
 
-#### Option 2: Manual Deployment
-See [RENDER_DEPLOYMENT.md](./RENDER_DEPLOYMENT.md) for detailed manual deployment instructions.
+**Your portfolio will be live at**: `https://sriyaa3.github.io/portfolio-/`
 
-#### Quick Reference
-See [DEPLOY_QUICK.md](./DEPLOY_QUICK.md) for a quick deployment checklist.
+See [GITHUB_PAGES_DEPLOYMENT.md](./GITHUB_PAGES_DEPLOYMENT.md) for detailed setup instructions.
+
+### Deploy to Other Platforms (Full-Stack)
+
+For full-stack deployment with backend, you can use other platforms:
+
+<details>
+<summary>Deploy to Other Platforms</summary>
+
+#### Render
+```bash
+# Backend: Create web service
+# Frontend: Create static site
+# Configure environment variables
+```
+
+#### Heroku
+```bash
+# Install Heroku CLI and login
+heroku login
+
+# Create app
+heroku create your-portfolio-app
+
+# Deploy
+git push heroku main
+```
+
+#### Vercel
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel --prod
+```
+</details>
 
 ## 📊 Features Overview
 
@@ -208,7 +233,7 @@ GET  /docs           # Interactive API documentation
 ```env
 PORT=8002
 HOST=0.0.0.0
-CORS_ORIGINS=http://localhost:3000,https://your-frontend.onrender.com
+CORS_ORIGINS=http://localhost:3000,https://sriyaa3.github.io
 ```
 
 **Frontend**
@@ -288,7 +313,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://linkedin.com/in/sriyaa)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=flat&logo=github)](https://github.com/sriyaa)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-green?style=flat&logo=web)](https://your-portfolio.onrender.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-green?style=flat&logo=web)](https://sriyaa3.github.io/portfolio-/)
 
 ---
 

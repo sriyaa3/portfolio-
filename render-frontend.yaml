@@ -1,9 +1,0 @@
-services:
-  # Frontend Static Site Service
-  - type: web
-    name: portfolio-frontend
-    buildCommand: "cd frontend && npm install --legacy-peer-deps && npm run build"
-    staticPublishPath: frontend/build
-    plan: starter
-    rootDir: .
-    region: oregon
