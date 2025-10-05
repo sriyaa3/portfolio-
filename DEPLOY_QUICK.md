@@ -4,30 +4,24 @@
 - [ ] Code pushed to GitHub
 - [ ] Render account created
 
-## Deploy with render.yaml (Easiest)
+## Deploy Backend (render.yaml)
 1. **Push code**: `git push origin main`
 2. **Create Blueprint** on Render Dashboard
 3. **Connect GitHub** repository
-4. **Deploy**: Click "Create Services"
-5. **Update CORS**: Add frontend URL to backend CORS_ORIGINS
+4. **Deploy**: Click "Create Services" (deploys backend only)
 
-## Manual Deployment
-### Backend (FastAPI)
-```
-Runtime: Python 3
-Build: cd backend && pip install -r requirements_simple.txt
-Start: cd backend && uvicorn server:app --host 0.0.0.0 --port $PORT
-```
+## Deploy Frontend (Separate Static Site)
+1. **Create Static Site** on Render Dashboard
+2. **Connect same GitHub** repository
+3. **Configure**:
+   ```
+   Build Command: cd frontend && npm install --legacy-peer-deps && npm run build
+   Publish Directory: frontend/build
+   ```
+4. **Deploy**
 
-### Frontend (React)
-```
-Build: cd frontend && npm install --legacy-peer-deps && npm run build
-Publish: frontend/build
-Rewrite: /* → /index.html
-```
-
-## Environment Variables
-**Backend**: `CORS_ORIGINS=https://your-frontend.onrender.com`
+## Update CORS
+**Backend**: Update `CORS_ORIGINS` with actual frontend URL
 
 ## 🎉 Done!
 Your portfolio will be live at:
