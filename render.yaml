@@ -1,13 +1,3 @@
-    
-  # Frontend Static Site Service  
-  - type: web
-    name: portfolio-frontend
-    buildCommand: "cd frontend && npm install --legacy-peer-deps && npm run build"
-    staticPublishPath: frontend/build
-    plan: starter
-    rootDir: .
-    region: oregon
->>>>>>> c9446d7544709923df62a78a6347f0dd56a86c4c
 services:
   # Backend API Service
   - type: web
@@ -28,14 +18,3 @@ services:
 
 # Note: Frontend will be deployed separately as a static site
 # Create this as a separate static site service in Render dashboard
-=======
-    
-  # Frontend Static Site Service  
-  - type: web
-    name: portfolio-frontend
-    buildCommand: "cd frontend && npm install --legacy-peer-deps && npm run build"
-    staticPublishPath: frontend/build
-    plan: starter
-    rootDir: .
-    region: oregon
->>>>>>> c9446d7544709923df62a78a6347f0dd56a86c4c
